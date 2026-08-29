@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AURELIA — Skin care, slowed down on purpose.</title>
+<meta name="description" content="AURELIA — small-batch, plant-derived skincare rituals for quiet luxury skin." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce">
+  <div class="announce-track">
+    <span>FREE SHIPPING ON ORDERS OVER $75</span>
+    <span>•</span>
+    <span>CASH ON DELIVERY AVAILABLE</span>
+    <span>•</span>
+    <span>30-DAY GLOW GUARANTEE</span>
+    <span>•</span>
+    <span>FREE SHIPPING ON ORDERS OVER $75</span>
+    <span>•</span>
+    <span>CASH ON DELIVERY AVAILABLE</span>
+    <span>•</span>
+    <span>30-DAY GLOW GUARANTEE</span>
+    <span>•</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header" id="siteHeader">
+  <div class="container header-row">
+    <a href="#top" class="brand">AURELIA</a>
+
+    <nav class="nav-desktop" aria-label="Primary">
+      <a href="#top">Rituals</a>
+      <a href="#favorites">Collection</a>
+      <a href="#craft">Stories</a>
+      <a href="#testimonials">About</a>
+      <a href="#cta">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" id="searchToggle" aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M20 20l-3.2-3.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+
+      <button class="icon-btn cart-toggle" id="cartToggle" aria-label="Open cart" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 4h2l1.6 10.6a2 2 0 0 0 2 1.7h8.8a2 2 0 0 0 2-1.6L21 8H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9.5" cy="20" r="1.3" fill="currentColor"/><circle cx="17" cy="20" r="1.3" fill="currentColor"/></svg>
+        <span class="cart-badge" id="cartBadge" hidden>0</span>
+      </button>
+
+      <a href="#favorites" class="btn btn-primary header-cta">Shop the Ritual</a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <form class="search-bar" id="searchBar" hidden>
+    <div class="container search-bar-inner">
+      <input type="text" placeholder="Search serums, oils, rituals…" aria-label="Search products" />
+      <button type="button" id="searchClose" aria-label="Close search">&times;</button>
+    </div>
+  </form>
+
+  <div class="nav-mobile" id="navMobile">
+    <a href="#top">Rituals</a>
+    <a href="#favorites">Collection</a>
+    <a href="#craft">Stories</a>
+    <a href="#testimonials">About</a>
+    <a href="#cta">Contact</a>
+    <a href="#favorites" class="btn btn-primary">Shop the Ritual</a>
+  </div>
+</header>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+  <div class="cart-drawer-head">
+    <h3>Your Ritual Bag</h3>
+    <button class="cart-close" id="cartClose" aria-label="Close cart">&times;</button>
+  </div>
+
+  <div class="cart-items" id="cartItems">
+    <p class="cart-empty" id="cartEmpty">Your bag is empty — add a ritual to begin.</p>
+  </div>
+
+  <div class="cart-drawer-foot">
+    <div class="cart-total-row">
+      <span>Subtotal</span>
+      <span id="cartTotal">$0</span>
+    </div>
+
+    <div class="payment-methods" id="paymentMethods">
+      <span class="payment-label">Payment method</span>
+      <label class="payment-option">
+        <input type="radio" name="payment" value="prepaid" checked />
+        <span>Prepaid — Card / UPI</span>
+      </label>
+      <label class="payment-option">
+        <input type="radio" name="payment" value="cod" />
+        <span>Cash on Delivery (COD)</span>
+      </label>
+    </div>
+
+    <button class="btn btn-primary cart-checkout" id="cartCheckout">Checkout</button>
+  </div>
+</aside>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<main>
+
+  <!-- 1. HERO -->
+  <section id="top" class="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="container hero-grid">
+      <div class="hero-copy reveal">
+        <span class="eyebrow">Small-batch · Plant-derived</span>
+        <h1 class="hero-title">
+          Skin care,<br />
+          <em>slowed down</em><br />
+          on purpose.
+        </h1>
+        <p class="hero-lede">
+          AURELIA is a five-step ritual built from cold-pressed botanicals
+          and quiet, considered formulas — made for skin, not for feeds.
+        </p>
+        <div class="hero-actions">
+          <a href="#favorites" class="btn btn-primary">Discover the Ritual</a>
+          <a href="#craft" class="btn btn-ghost">View Collection</a>
+        </div>
+        <div class="hero-meta">
+          <div><strong>12k+</strong><span>Rituals shipped</span></div>
+          <div><strong>100%</strong><span>Plant-derived actives</span></div>
+          <div><strong>4.9/5</strong><span>From 2,300 reviews</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal" id="heroVisual">
+        <div class="hero-photo-frame">
+          <img src="images/hero-products.jpg" alt="AURELIA ritual set — oceanic oil, botanical body wash, nourishing cream and vanishing veil, arranged on stone with reflection" />
+          <div class="hero-dots" aria-hidden="true"><span class="active"></span><span></span><span></span><span></span></div>
+        </div>
+        <div class="hero-float-card">
+          <span class="hero-float-num">120+</span>
+          <span class="hero-float-txt">verified glow stories this month</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. TRUST STRIP -->
+  <section class="trust-strip reveal">
+    <div class="container trust-grid">
+      <div class="trust-item">
+        <span class="trust-icon"><svg viewBox="0 0 40 40" fill="none"><path d="M20 34c0-10 6-18 14-20-2 12-6 18-14 20Z" stroke="currentColor" stroke-width="1.4"/><path d="M20 34c0-10-6-18-14-20 2 12 6 18 14 20Z" stroke="currentColor" stroke-width="1.4"/><path d="M20 34V16" stroke="currentColor" stroke-width="1.4"/></svg></span>
+        <h4>Plant-Derived</h4>
+        <p>Pure botanicals, powered by plants.</p>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon"><svg viewBox="0 0 40 40" fill="none"><path d="M9 18h22l-2 13a3 3 0 0 1-3 2.6H14a3 3 0 0 1-3-2.6L9 18Z" stroke="currentColor" stroke-width="1.4"/><path d="M14 18a6 6 0 0 1 12 0" stroke="currentColor" stroke-width="1.4"/></svg></span>
+        <h4>Small Batch</h4>
+        <p>Crafted in small batches with care.</p>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon"><svg viewBox="0 0 40 40" fill="none"><path d="M16 8h8v8l7 13a3 3 0 0 1-2.6 4.5H11.6A3 3 0 0 1 9 29l7-13V8Z" stroke="currentColor" stroke-width="1.4"/><path d="M14 24h12" stroke="currentColor" stroke-width="1.4"/></svg></span>
+        <h4>Clean &amp; Safe</h4>
+        <p>No toxins. No fillers. Just what skin loves.</p>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon"><svg viewBox="0 0 40 40" fill="none"><rect x="14" y="12" width="12" height="22" rx="4" stroke="currentColor" stroke-width="1.4"/><path d="M17 12V8h6v4" stroke="currentColor" stroke-width="1.4"/></svg></span>
+        <h4>Sustainable</h4>
+        <p>Glass bottles. Minimal waste. Maximum care.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. CUSTOMER FAVORITES -->
+  <section id="favorites" class="favorites">
+    <div class="container favorites-head reveal">
+      <div>
+        <span class="eyebrow">Shop Bestsellers</span>
+        <h2 class="section-title">Customer Favorites</h2>
+      </div>
+      <a href="#craft" class="view-all">View All Products <span aria-hidden="true">&rarr;</span></a>
+    </div>
+
+    <div class="container">
+      <div class="fav-scroll">
+        <div class="fav-track" id="favTrack">
+
+          <article class="fav-card reveal" data-delay="0">
+            <span class="fav-badge">Bestseller</span>
+            <div class="fav-photo">
+              <img src="images/product-oil.jpg" alt="AURELIA Nourishing Face Oil" loading="lazy" />
+              <button class="fav-quickadd product-add" data-id="nourishing-face-oil" data-name="Nourishing Face Oil" data-price="48">Add to Bag</button>
+            </div>
+            <div class="fav-info">
+              <h3>Nourishing Face Oil</h3>
+              <span class="fav-price">$48.00</span>
+              <div class="fav-rating"><span class="stars">★★★★★</span><span class="count">(120)</span></div>
+            </div>
+          </article>
+
+          <article class="fav-card reveal" data-delay="80">
+            <div class="fav-photo">
+              <img src="images/product-toner.jpg" alt="AURELIA Hydrating Toner" loading="lazy" />
+              <button class="fav-quickadd product-add" data-id="hydrating-toner" data-name="Hydrating Toner" data-price="36">Add to Bag</button>
+            </div>
+            <div class="fav-info">
+              <h3>Hydrating Toner</h3>
+              <span class="fav-price">$36.00</span>
+              <div class="fav-rating"><span class="stars">★★★★★</span><span class="count">(86)</span></div>
+            </div>
+          </article>
+
+          <article class="fav-card reveal" data-delay="160">
+            <div class="fav-photo">
+              <img src="images/product-serum.jpg" alt="AURELIA Radiance Serum" loading="lazy" />
+              <button class="fav-quickadd product-add" data-id="radiance-serum" data-name="Radiance Serum" data-price="52">Add to Bag</button>
+            </div>
+            <div class="fav-info">
+              <h3>Radiance Serum</h3>
+              <span class="fav-price">$52.00</span>
+              <div class="fav-rating"><span class="stars">★★★★★</span><span class="count">(95)</span></div>
+            </div>
+          </article>
+
+          <article class="fav-card reveal" data-delay="240">
+            <div class="fav-photo">
+              <img src="images/product-cream.jpg" alt="AURELIA Nourishing Cream" loading="lazy" />
+              <button class="fav-quickadd product-add" data-id="nourishing-cream" data-name="Nourishing Cream" data-price="52">Add to Bag</button>
+            </div>
+            <div class="fav-info">
+              <h3>Nourishing Cream</h3>
+              <span class="fav-price">$52.00</span>
+              <div class="fav-rating"><span class="stars">★★★★★</span><span class="count">(74)</span></div>
+            </div>
+          </article>
+
+          <article class="fav-card reveal" data-delay="320">
+            <div class="fav-photo">
+              <img src="images/product-cleanser.jpg" alt="AURELIA Balancing Cleanser" loading="lazy" />
+              <button class="fav-quickadd product-add" data-id="balancing-cleanser" data-name="Balancing Cleanser" data-price="38">Add to Bag</button>
+            </div>
+            <div class="fav-info">
+              <h3>Balancing Cleanser</h3>
+              <span class="fav-price">$38.00</span>
+              <div class="fav-rating"><span class="stars">★★★★★</span><span class="count">(68)</span></div>
+            </div>
+          </article>
+
+        </div>
+        <button class="fav-nav fav-nav-next" id="favNext" aria-label="Next products">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. CRAFT / PROCESS -->
+  <section id="craft" class="craft">
+    <div class="container craft-grid">
+      <div class="craft-copy reveal">
+        <span class="eyebrow">The Process</span>
+        <h2 class="section-title">From field to<br />vessel, quickly.</h2>
+        <p class="section-lede">
+          Freshness is our only luxury flex. Here's the timeline every
+          batch follows before it reaches your shelf.
+        </p>
+      </div>
+
+      <ol class="craft-timeline reveal">
+        <li>
+          <span class="craft-time">Dawn</span>
+          <div>
+            <h3>Harvest</h3>
+            <p>Botanicals are hand-picked at first light, when oil concentration peaks.</p>
+          </div>
+        </li>
+        <li>
+          <span class="craft-time">+6 hrs</span>
+          <div>
+            <h3>Cold-press</h3>
+            <p>Pressed below 40°C within hours of harvest to protect active compounds.</p>
+          </div>
+        </li>
+        <li>
+          <span class="craft-time">+3 days</span>
+          <div>
+            <h3>Small-batch pour</h3>
+            <p>Formulated and bottled in runs of 400, dated and numbered by hand.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 5. TESTIMONIALS -->
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <span class="eyebrow reveal">In Their Words</span>
+      <h2 class="section-title reveal">Trusted by quietly<br />discerning skin.</h2>
+
+      <div class="testimonial-grid">
+        <blockquote class="testimonial-card reveal" data-delay="0">
+          <p>&ldquo;My skin has never looked this settled — the Nourishing Face Oil alone replaced four other products in my routine.&rdquo;</p>
+          <footer>
+            <span class="t-name">Meera K.</span>
+            <span class="t-role">Verified buyer</span>
+          </footer>
+        </blockquote>
+        <blockquote class="testimonial-card reveal" data-delay="100">
+          <p>&ldquo;The kind of brand where you can actually read the ingredient list and understand every word.&rdquo;</p>
+          <footer>
+            <span class="t-name">Ananya R.</span>
+            <span class="t-role">Verified buyer</span>
+          </footer>
+        </blockquote>
+        <blockquote class="testimonial-card reveal" data-delay="200">
+          <p>&ldquo;Ordered COD, arrived in three days — packaging alone feels like a spa unboxing.&rdquo;</p>
+          <footer>
+            <span class="t-name">Devika S.</span>
+            <span class="t-role">Verified buyer</span>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. CTA / NEWSLETTER -->
+  <section id="cta" class="cta">
+    <div class="container cta-box reveal">
+      <div class="cta-copy">
+        <span class="eyebrow">Start Your Ritual</span>
+        <h2 class="section-title">Get 15% off<br />your first ritual.</h2>
+        <p class="section-lede">
+          Join the list for early access to new formulas and seasonal
+          refill offers — no spam, just skin news.
+        </p>
+      </div>
+
+      <form class="cta-form" id="ctaForm">
+        <input type="email" required placeholder="you@email.com" aria-label="Email address" id="ctaEmail" />
+        <button type="submit" class="btn btn-primary">Get My Code</button>
+      </form>
+      <p class="cta-success" id="ctaSuccess" hidden>You're on the list — check your inbox for your code.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <span class="brand">AURELIA</span>
+      <p>Quiet-luxury skincare, formulated in small batches.</p>
+      <div class="footer-payments">
+        <span class="pay-chip">COD Available</span>
+        <span class="pay-chip">UPI</span>
+        <span class="pay-chip">Cards</span>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#favorites">Face Oils</a></li>
+        <li><a href="#favorites">Toners</a></li>
+        <li><a href="#favorites">Serums</a></li>
+        <li><a href="#favorites">Creams</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#craft">Our Story</a></li>
+        <li><a href="#craft">Sustainability</a></li>
+        <li><a href="#craft">Ingredients</a></li>
+        <li><a href="#testimonials">Press</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#cta">Contact</a></li>
+        <li><a href="#top">Shipping &amp; COD</a></li>
+        <li><a href="#top">Returns</a></li>
+        <li><a href="#top">FAQ</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <span id="footerYear">&copy; 2026 AURELIA. All rights reserved.</span>
+    <div class="footer-social">
+      <a href="#top" aria-label="Instagram">Instagram</a>
+      <a href="#top" aria-label="Pinterest">Pinterest</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
